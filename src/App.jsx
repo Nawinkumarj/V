@@ -8,6 +8,7 @@ import Service from "./Pages/Services";
 import CustomCursor from "./Components/InteractiveCursor";
 import { assets } from "./assets/assets";
 import EnquireButton from "./Components/EnquireButton";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   const footerRef = useRef(null); 
@@ -70,6 +71,7 @@ function App() {
   return (
     <div className="scroll-wrapper">
       <div className="app-main">
+        <ScrollToTop />
       <CustomCursor cursorImage={assets.cursor} />
       <EnquireButton/>
       <Navbar />
