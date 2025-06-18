@@ -1,4 +1,4 @@
-import logo from './v_logo.png';
+import logo from './V_logo.png';
 import logo1 from './logo1.png'
 import works1 from './Mockups/01.jpg'
 import works2 from './Mockups/02.jpg'
