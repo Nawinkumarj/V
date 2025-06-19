@@ -6,21 +6,6 @@ const Footer = forwardRef((props, ref) => {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="footer-container">
-      {/* Top Semicircle Section */}
-      <div className="footer-top">
-        <div className="footer-top-content">
-          <h4>Craft with Vcraftyu.</h4>
-          {/* <p>
-            Make digital ownership effortless, intuitive, and secure. Start
-            building with Reown and create unparalleled user experiences today.
-          </p> */}
-          <div className="footer-buttons">
-            <button className="build-btn">Build for free</button>
-            {/* <button className="docs-btn">Docs</button> */}
-          </div>
-        </div>
-      </div>
-
       <div className="footer-bottom">
         {/* Newsletter */}
 
@@ -107,7 +92,7 @@ const Footer = forwardRef((props, ref) => {
       <div ref={ref} className="footer-copyrits">
         <p>
           Copyright © {currentYear} All rights reserved |{" "}
-          <a href="mailto:hi@vcraftyucompany.com"></a> hi@vcraftyucompany.com{" "}
+          <a href="mailto:hi@vcraftyucompany.com">hi@vcraftyucompany.com</a> 
         </p>
       </div>
     </footer>

@@ -72,37 +72,37 @@ function App() {
     <div className="scroll-wrapper">
       <div className="app-main">
         <ScrollToTop />
-      <CustomCursor cursorImage={assets.cursor} />
-      <EnquireButton/>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<About />} />
-        <Route path="/services" element={<Service />} />
-      </Routes>
+        <CustomCursor cursorImage={assets.cursor} />
+        <EnquireButton />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/services" element={<Service />} />
+        </Routes>
 
-      {/* ✅ Pass the ref to Footer */}
-      <Footer ref={footerRef} />
+        {/* ✅ Pass the ref to Footer */}
+        <Footer ref={footerRef} />
 
-      {/* Scroll Bump */}
-      <div id="scroll-bump" className="scroll-bump">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 690 60"
-          preserveAspectRatio="none"
-        >
-          <path
-            className="bulge"
-            fill="#8750f7"
-            d="M0,55 C107.57331,55 172.397965,0 261.914001,0 
+        {/* Scroll Bump */}
+        <div id="scroll-bump" className="scroll-bump">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 690 60"
+            preserveAspectRatio="none"
+          >
+            <path
+              className="bulge"
+              fill="#8750f7"
+              d="M0,55 C107.57331,55 172.397965,0 261.914001,0 
              C351.430038,0 418.082695,55 524.041347,55 
              C630,55 -108,55 0,55 Z"
-          />
-        </svg>
-        <p className="label">Back to top</p>
+            />
+          </svg>
+          <p className="label">Back to top</p>
         </div>
-        </div>
-  </div>
+      </div>
+    </div>
   );
 }
 

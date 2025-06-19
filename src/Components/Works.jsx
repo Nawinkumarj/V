@@ -15,21 +15,21 @@ const Works = () => {
         scrub: 1,
         pin: true,
         // markers: true,
-        scroller: ".scroll-wrapper", // still needed here
+        scroller: ".scroll-wrapper",
       },
     });
 
     workRefs.current.forEach((ref, i) => {
       tl.fromTo(
         ref,
-        { y: 150, opacity: 0, scale: 0.95 },
-        { y: 0, opacity: 1, scale: 1, duration: 1 },
+        { y: 150, opacity: 0, scale: .7 },
+        { y: 0, opacity: 1, scale: 1, duration: .5 },
         i * 0.6
       );
     });
 
     setTimeout(() => {
-      ScrollTrigger.refresh(); // recalculate positions after render
+      ScrollTrigger.refresh();
     }, 500);
 
     return () => {
@@ -37,10 +37,6 @@ const Works = () => {
       tl.kill();
     };
   }, []);
-  
-  
-  
-
   return (
     <div className="ourWorks-container" ref={workscontainerRef}>
       <div className="ourWorks">
