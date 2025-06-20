@@ -1,5 +1,5 @@
 import logo from './V_logo.png';
-import logo1 from './logo1.png'
+import logo1 from './logov.png'
 import works1 from './Mockups/01.jpg'
 import works2 from './Mockups/02.jpg'
 import works3 from './Mockups/03.jpg'
@@ -20,6 +20,13 @@ import m from './magic.png'
 import mobile from "./mob.png"
 import web from "./web.png";
 
+
+import abt_scroll1 from "./Gallery/1.jpg"
+import abt_scroll2 from "./Gallery/2.jpg";
+import abt_scroll3 from "./Gallery/3.jpg";
+import abt_scroll4 from "./Gallery/4.jpg";
+import abt_scroll5 from "./Gallery/5.png";
+
 export const assets = {
   logo,
   logo1,
@@ -39,6 +46,11 @@ export const assets = {
   web,
   m,
   cursor,
+  abt_scroll1,
+  abt_scroll2,
+  abt_scroll3,
+  abt_scroll4,
+  abt_scroll5,
 };       
 
 

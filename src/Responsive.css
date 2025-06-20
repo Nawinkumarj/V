@@ -22,17 +22,18 @@
         grid-row: auto !important;   
     }
     .service-content-img {
-        width: 200px;
+        width: 100%;
     }
-    .second-img{
+    /* .second-img{
         width: 100px;
-    }
+    } */
     .content-reverse{
         flex-direction: column;
         align-items: flex-end;
+        justify-content: center;
     }
     .mobile-design{
-        transform: rotate(-90deg);
+        /* transform: rotate(-90deg); */
     }
     .service-content-text p {
         max-width: 95%;

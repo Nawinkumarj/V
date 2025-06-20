@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+
 
 const Footer = forwardRef((props, ref) => {
   const currentYear = new Date().getFullYear();
@@ -44,7 +46,7 @@ const Footer = forwardRef((props, ref) => {
             <p>sample1</p>
           </div>
           <div className="developers-terms">
-            <p>terms of service</p>
+           <Link to="/privacy-policy"> <p>Privacy Policy</p></Link>
             <p>terms of service</p>
             <p>terms of service</p>
           </div>

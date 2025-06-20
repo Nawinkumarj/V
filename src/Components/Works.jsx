@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { assets } from "../assets/assets";
 import { gsap, ScrollTrigger } from "../Components/gsapSetup";
+import { GiRapidshareArrow } from "react-icons/gi";
 
 const Works = () => {
   const workscontainerRef = useRef(null);
@@ -39,6 +40,10 @@ const Works = () => {
   }, []);
   return (
     <div className="ourWorks-container" ref={workscontainerRef}>
+      <div className="ourWorks-heading">
+        <h1>works</h1>
+        <p><GiRapidshareArrow size={70} /></p>
+      </div>
       <div className="ourWorks">
         {[assets.works1, assets.works2, assets.works3].map((img, i) => (
           <div

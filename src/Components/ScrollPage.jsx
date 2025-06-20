@@ -127,13 +127,12 @@ const ScrollPage = () => {
 
   return (
     <div className="scrollpage-container">
-      {/* <header className="scrollpage-header">
+      <header className="scrollpage-header">
         <h1 className="scrollpage-fluid">
-          you can
-          <br />
-          scroll.
+          What We can<br />
+          Do?
         </h1>
-      </header> */}
+      </header>
       <main className="scrollpage-main">
         <section className="scrollpage-content scrollpage-fluid">
           <h2>

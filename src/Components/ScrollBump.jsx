@@ -1,93 +1,57 @@
+// ScrollBump.jsx
 import React, { useEffect } from "react";
 
-export default function ScrollBump() {
+const ScrollBump = ({ footerRef }) => {
   useEffect(() => {
     const bump = document.getElementById("scroll-bump");
-    const progressLine = document.getElementById("progress-line");
-    const backText = document.getElementById("back-to-top-text");
-    if (!bump || !progressLine || !backText) return;
+    const scrollWrapper = document.querySelector(".scroll-wrapper");
 
-    const totalLen = 600;
-    progressLine.style.strokeDasharray = totalLen;
-    progressLine.style.strokeDashoffset = totalLen;
+    const handleScroll = () => {
+      if (!bump || !footerRef?.current || !scrollWrapper) return;
 
-    let animStarted = false;
-    let animDone = false;
-    let scrollSent = false;
+      const footerRect = footerRef.current.getBoundingClientRect();
+      const wrapperRect = scrollWrapper.getBoundingClientRect();
+      const footerTop = footerRect.top - wrapperRect.top;
+      const footerHeight = footerRect.height;
 
-    const animCurve = () => {
-      const dur = 2000;
-      let start = null;
-      requestAnimationFrame(function step(ts) {
-        if (!start) start = ts;
-        const t = Math.min((ts - start) / dur, 1);
-        progressLine.style.strokeDashoffset = totalLen * (1 - t);
-        if (t < 1) requestAnimationFrame(step);
-        else animDone = true;
-      });
+      const isVisible =
+        footerTop < scrollWrapper.clientHeight && footerTop + footerHeight > 0;
+
+      bump.classList.toggle("visible", isVisible);
     };
 
-    const smoothUp = () => {
-      const startY = window.scrollY;
-      const dur = 1500;
-      let start = null;
-      requestAnimationFrame(function step(ts) {
-        if (!start) start = ts;
-        const t = Math.min((ts - start) / dur, 1);
-        const y = startY * (1 - (1 - t) ** 3);
-        window.scrollTo(0, y);
-        if (t < 1) requestAnimationFrame(step);
-      });
+    const handleClick = () => {
+      scrollWrapper?.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    const scrollHandler = () => {
-      const top = bump.getBoundingClientRect().top;
-      if (top < window.innerHeight && !animStarted) {
-        bump.classList.add("visible");
-        animStarted = true;
-        animCurve();
-      }
-      if (top > window.innerHeight && animStarted) {
-        bump.classList.remove("visible");
-        animStarted = false;
-        animDone = false;
-        scrollSent = false;
-        progressLine.style.strokeDashoffset = totalLen;
-      }
-      if (
-        animDone &&
-        backText.getBoundingClientRect().top < window.innerHeight - 10 &&
-        !scrollSent
-      ) {
-        scrollSent = true;
-        smoothUp();
-      }
-    };
+    scrollWrapper?.addEventListener("scroll", handleScroll);
+    bump?.addEventListener("click", handleClick);
+    handleScroll();
 
-    window.addEventListener("scroll", scrollHandler);
-    return () => window.removeEventListener("scroll", scrollHandler);
-  }, []);
+    return () => {
+      scrollWrapper?.removeEventListener("scroll", handleScroll);
+      bump?.removeEventListener("click", handleClick);
+    };
+  }, [footerRef]);
 
   return (
     <div id="scroll-bump" className="scroll-bump">
-      <svg viewBox="0 0 300 150" className="progress-curve">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 690 60"
+        preserveAspectRatio="none"
+      >
         <path
-          d="M0,150 Q150,0 300,150"
-          stroke="#444"
-          strokeWidth="4"
-          fill="none"
-        />
-        <path
-          id="progress-line"
-          d="M0,150 Q150,0 300,150"
-          stroke="#0ff"
-          strokeWidth="4"
-          fill="none"
+          className="bulge"
+          fill="#8750f7"
+          d="M0,55 C107.57331,55 172.397965,0 261.914001,0 
+             C351.430038,0 418.082695,55 524.041347,55 
+             C630,55 -108,55 0,55 Z"
         />
       </svg>
-      <div id="back-to-top-text" className="back-to-top-text">
-        Back to Top
-      </div>
+      <p className="label">Back to top</p>
     </div>
   );
-}
+};
+
+export default ScrollBump;
