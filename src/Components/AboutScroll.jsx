@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { assets } from "../assets/assets";
 import { gsap, ScrollTrigger } from "../Components/gsapSetup";
-import { FaArrowDown } from "react-icons/fa";
 
 
 const AboutScroll = () => {
@@ -67,7 +66,6 @@ const AboutScroll = () => {
     <div className="ourWorks-container" ref={workscontainerRef}>
       <div className="ourWorks-heading">
         <h1>branding</h1>
-        <p><FaArrowDown size={70} /></p>
       </div>
       <div className="Aboutscroll">
         {[

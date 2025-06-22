@@ -40,7 +40,7 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* Hamburger - visible only when scrolled */}
+        {/* Hamburger - visible when scrolled */}
         {scrolled && (
           <div className="navbar-right">
             <div
@@ -60,24 +60,24 @@ const Navbar = () => {
             </div>
             {menuOpen && (
               <div className="dropdown-menu">
-                <div className="dropdown-logo">
-                  <img src={assets.logo1} alt="" />
-                </div>
                 <div className="dropdown-nav">
                   <div className="dropdown-navBar">
+                    <NavLink to="/" onClick={() => setMenuOpen(false)}>
+                      Home
+                    </NavLink>
                     <NavLink to="/about-us" onClick={() => setMenuOpen(false)}>
                       About
                     </NavLink>
                     <NavLink to="/services" onClick={() => setMenuOpen(false)}>
                       Service
                     </NavLink>
-                    <div className="dropdown-Contact">
-                      <div className="dropdown-ph">
-                        <a href="">+91 9840488033</a>
-                      </div>
-                      <div className="dropdown-mail">
-                        <a href="">hi@vcraftyucompany.com</a>
-                      </div>
+                  </div>
+                  <div className="dropdown-Contact">
+                    <div className="dropdown-ph">
+                      <a href="">+91 9840488033</a>
+                    </div>
+                    <div className="dropdown-mail">
+                      <a href="">hi@vcraftyucompany.com</a>
                     </div>
                   </div>
                 </div>

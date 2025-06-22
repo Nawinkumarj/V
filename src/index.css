@@ -30,6 +30,7 @@
   --title-font: "Kanit", sans-serif;
   --navbar-font: "Goldman", sans-serif;
   --contact-font: "Lato", sans-serif;
+  --heading-font: 3rem;
 }
 
 /* html{
@@ -206,7 +207,11 @@ body {
 .hamburger:hover {
   cursor: pointer;
 }
-
+.hamburger.active{
+  position: relative;
+  z-index: 9999;
+  border: 5px solid rgb(0, 0, 0);
+}
 .hamburger>.plusIcon {
   fill: var(--primary-color);
   width: calc(var(--plus_sideLength) * 0.7);
@@ -250,11 +255,11 @@ body {
 
 .dropdown-menu {
   background-color: var(--text-color);
-  width: 95%;
-  height: 90vh;
+  width: 300px;
+  height: 350px;
   position: absolute;
-  top: 5%;
-  right: 2.5%;
+  top: 50px;
+  right: 60px;
   border-radius: 8px;
   padding: 1rem;
   border: 2px solid var(--primary-color);
@@ -282,13 +287,14 @@ body {
   padding: 1rem;
   height: 100%;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .dropdown-menu a {
   width: 100%;
-  text-align: right;
-  font-size: 11rem;
+  text-align: left;
+  font-size: 3rem;
   margin-bottom: 10px;
   color: var(--third-color);
   font-family: var(--navbar-font);
@@ -296,8 +302,7 @@ body {
 }
 
 .dropdown-Contact {
-  text-align: end;
-  width: 100%;
+  margin-bottom: 20px;
 }
 
 .dropdown-Contact .dropdown-ph a,
@@ -359,7 +364,7 @@ body {
 .ourWorks-heading{
   font-family: var(--contact-font);
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: var(--heading-font);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -590,7 +595,47 @@ body {
 }
 
 /* About us ends */
+/* Faq starts */
+.faq-section{
+  padding: 50px 0;
+  width: 90%;
+  margin: auto;
+}
+.faq-heading{
+  font-size: var(--heading-font);
+  color: var(--text-color);
+  font-family: var(--contact-font);
+  margin: 20px 0;
+}
+.faq-qn{
+  width: 100%;
+  padding: 20px;
+  background: none;
+  font-size: 2rem;
+  font-family: var(--contact-font);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  transition: all 0.3s ease;
 
+}
+.faq-item{
+  border-bottom: 1px solid var(--primary-color);
+  padding: 20px;
+  transition: all 0.3s ease;
+
+}
+.faq-answer{
+  padding: 20px;
+  font-size: 1.5rem;
+  font-family: var(--contact-font);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+
+}
+/* Faq ends */
 /* Footer starts */
 
 .footer-container {
@@ -1103,69 +1148,6 @@ color:white;
 
   100% {
     transform: translateX(-50%);
-  }
-}
-
-.contact-ph {
-  margin-top: 30px;
-}
-
-.contact-ph a {
-  margin: auto;
-  width: 160px;
-  font-family: var(--contact-font);
-  font-size: 20px;
-  background: var(--primary-color);
-  color: white;
-  padding: 0.7em 1em;
-  padding-left: 0.9em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 50px;
-  overflow: hidden;
-  transition: all 0.2s;
-  cursor: pointer;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.contact-ph a span {
-  display: block;
-  margin-left: 0.3em;
-  transition: all 0.3s ease-in-out;
-}
-
-.contact-ph a svg {
-  display: block;
-  transform-origin: center center;
-  transition: transform 0.3s ease-in-out;
-}
-
-.contact-ph a:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
-}
-
-.contact-ph a:hover svg {
-  transform: translateX(1.2em) rotate(45deg) scale(1.1);
-}
-
-.contact-ph a:hover span {
-  transform: translateX(9em);
-}
-
-.contact-ph a:active {
-  transform: scale(0.95);
-}
-
-@keyframes fly-1 {
-  from {
-    transform: translateY(0.1em);
-  }
-
-  to {
-    transform: translateY(-0.1em);
   }
 }
 

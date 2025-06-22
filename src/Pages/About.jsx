@@ -4,6 +4,7 @@ import Clients from "../Components/Clients";
 import AboutScroll from "../Components/AboutScroll";
 import { gsap, ScrollTrigger } from "../Components/gsapSetup";
 import { Helmet } from "react-helmet";
+import Faq from "../Components/Faq";
 
 
 const About = () => {
@@ -68,6 +69,8 @@ const About = () => {
       </div>
       {/* <Clients /> */}
       <Clients />
+      {/* Faq */}
+      <Faq />
     </div>
     </>
   );

@@ -11,7 +11,7 @@ import EnquireButton from "./Components/EnquireButton";
 import ScrollToTop from "./Components/ScrollToTop";
 import ScrollBump from "./Components/ScrollBump";
 import PolicyPage from "./Pages/PrivacyPolicy";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const footerRef = useRef(null); 
