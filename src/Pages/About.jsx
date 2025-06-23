@@ -5,7 +5,7 @@ import AboutScroll from "../Components/AboutScroll";
 import { gsap, ScrollTrigger } from "../Components/gsapSetup";
 import { Helmet } from "react-helmet";
 import Faq from "../Components/Faq";
-import Video from "../Components/video";
+import Videos from "../Components/Videos";
 
 
 const About = () => {
@@ -69,7 +69,7 @@ const About = () => {
         <AboutScroll />
       </div>
       {/* Video */}
-      <Video />
+      <Videos />
       {/* <Clients /> */}
       <Clients />
       {/* Faq */}
