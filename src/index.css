@@ -24,7 +24,7 @@
 :root {
   --primary-color: #8750f7;
   --secondary-color:#172144;
-  --text-color: #e3e3e3;
+  --text-color: #ffffff;
   --third-color: #000000;
   --primary-font: "vamos";
   --title-font: "Kanit", sans-serif;
@@ -611,6 +611,9 @@ body {
 }
 
 /* About us ends */
+
+
+
 /* Faq starts */
 .faq-section{
   padding: 50px 0;
@@ -634,9 +637,12 @@ body {
   align-items: center;
   justify-content: space-between;
   border: none;
-  transition: all 0.3s ease;
-
+  transition: all 0.4s ease;
+  
 }
+
+
+
 .faq-item{
   border-bottom: 1px solid var(--primary-color);
   padding: 20px;
@@ -652,6 +658,10 @@ body {
 
 }
 /* Faq ends */
+
+
+
+
 /* Footer starts */
 
 .footer-container {
@@ -816,9 +826,11 @@ body {
 }
 
 .footer-developers,
-.footer-connect,
-.footer-company {
-  background: rgb(183, 192, 201);
+.footer-connect{
+  /* background: rgb(183, 192, 201); */
+  backdrop-filter: blur(15px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+    inset 0 0 5px rgba(255, 255, 255, 0.274), 0 5px 5px rgba(0, 0, 0, 0.164);
   border-radius: 30px;
   padding: 1rem 1.2rem;
 }
@@ -836,7 +848,10 @@ body {
 .footer-dot,
 .footer-slash,
 .footer-branding {
-  background: rgb(183, 192, 201);
+  /* background: rgb(183, 192, 201); */
+  backdrop-filter: blur(15px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+    inset 0 0 5px rgba(255, 255, 255, 0.274), 0 5px 5px rgba(0, 0, 0, 0.164);
   border-radius: 30px;
   padding: 0.5rem 1.2rem;
   display: flex;
@@ -1339,6 +1354,9 @@ color:white;
   }
 }
 
+
+
+
 @layer base {
   :root {
     --font-size-min: 14;
@@ -1411,7 +1429,10 @@ color:white;
     white-space: nowrap;
     border-width: 0;
   }
+  
 }
+
+
 
 /* scrollpage ends */
 

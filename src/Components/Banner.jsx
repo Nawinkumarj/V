@@ -11,11 +11,11 @@ const Banner = () => {
         </div>
         <div className="Banner">
           <div className="Banner-text">
-            <h1>a  Digital Craft Studio</h1>
-            {/* <h1> Designing Digital DNA</h1> */}
+            {/* <h1>a  Digital Craft Studio</h1> */}
+            <h1> Designing Digital DNA</h1>
           </div>
           <div className="Banner-model">
-          <ModelViewer/>
+          {/* <ModelViewer/> */}
           </div>
         </div>
       </div>

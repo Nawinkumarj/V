@@ -12,6 +12,7 @@ import ScrollToTop from "./Components/ScrollToTop";
 import ScrollBump from "./Components/ScrollBump";
 import PolicyPage from "./Pages/PrivacyPolicy";
 import { Analytics } from "@vercel/analytics/react"
+import ClientPortal from "./Pages/ClientPortal";
 
 function App() {
   const footerRef = useRef(null); 
@@ -44,6 +45,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<About />} />
+          <Route path="/cp" element={<ClientPortal />} />
           <Route path="/services" element={<Service />} />
           <Route path="/privacy-policy" element={<PolicyPage/>}/>
         </Routes>

@@ -43,9 +43,6 @@ const Clients = () => {
           <div className="client-logo9 client-logo">
             <img src={assets.client9} alt="client9" />
           </div>
-          <div className="client-logo10 client-logo">
-            <img src={assets.client1} alt="client10" />
-          </div>
         </div>
       </div>
     </div>

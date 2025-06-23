@@ -36,6 +36,9 @@ const Navbar = () => {
             <NavLink to="/about-us" className="nav-link">
               <DecryptedText text="About" speed={50} />
             </NavLink>
+            <NavLink to="/cp" className="nav-link">
+              <DecryptedText text="Client Portal" speed={50} />
+            </NavLink>
             <NavLink to="/services" className="nav-link">
               <DecryptedText text="Service" speed={50} />
             </NavLink>
@@ -70,16 +73,19 @@ const Navbar = () => {
                     <NavLink to="/about-us" onClick={() => setMenuOpen(false)}>
                       About
                     </NavLink>
+                    <NavLink to="/cp" onClick={() => setMenuOpen(false)}>
+                      Clients Portal
+                    </NavLink>
                     <NavLink to="/services" onClick={() => setMenuOpen(false)}>
                       Service
                     </NavLink>
                   </div>
                   <div className="dropdown-Contact">
                     <div className="dropdown-ph">
-                      <a href="">+91 9840488033</a>
+                      <a href="tel:+91 9840488033">+91 9840488033</a>
                     </div>
                     <div className="dropdown-mail">
-                      <a href="">hi@vcraftyucompany.com</a>
+                      <a href="mailto:hi@vcraftyucompany.com">hi@vcraftyucompany.com</a>
                     </div>
                   </div>
                 </div>

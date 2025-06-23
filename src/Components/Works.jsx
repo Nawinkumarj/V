@@ -23,8 +23,18 @@ const Works = () => {
       tl.fromTo(
         ref,
         { y: 150, opacity: 0, scale: .7 },
-        { y: 0, opacity: 1, scale: 1, duration: .5 },
-        i * 0.6
+        { y: 0, opacity: 1, scale: 1, duration: .5, ease: "power2.inout" },
+        i * 1.2
+      );
+      tl.to(
+        ref,
+        {
+          scale: 0.8,
+          y: -10,
+          duration: .5,
+          ease: "power2.inOut",
+        },
+        i * 1.2 + 0.6
       );
     });
 

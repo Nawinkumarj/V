@@ -1,14 +1,21 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Flip from "gsap/Flip";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger , Flip);
+
+// ✅ Safe idle fallback
+const runIdle = (cb) =>
+  "requestIdleCallback" in window
+    ? requestIdleCallback(cb)
+    : setTimeout(cb, 200); // fallback for unsupported browsers
 
 if (typeof window !== "undefined") {
-  window.addEventListener("load", () => {
+  runIdle(() => {
     const scrollWrapper = document.querySelector(".scroll-wrapper");
 
     if (scrollWrapper) {
-      // ✅ Setup scrollerProxy for custom scroll container
+      // ✅ Defer ScrollTrigger setup until browser is idle
       ScrollTrigger.scrollerProxy(scrollWrapper, {
         scrollTop(value) {
           return arguments.length
@@ -23,20 +30,17 @@ if (typeof window !== "undefined") {
             height: window.innerHeight,
           };
         },
-        pinType: "fixed", // ✅ Force 'fixed' pinning to prevent Safari jitter
+        pinType: "fixed",
       });
 
-      // ✅ Normalize scrolling behavior for smoother experience on Mac
       ScrollTrigger.normalizeScroll({
         target: scrollWrapper,
         allowNestedScroll: true,
         type: "touch,wheel,pointer",
       });
 
-      // ✅ Set default scroller
       ScrollTrigger.defaults({ scroller: scrollWrapper });
 
-      // ✅ Force refresh to avoid layout shift or jitter
       ScrollTrigger.addEventListener("refresh", () => {
         scrollWrapper.style.overflow = "hidden";
         requestAnimationFrame(() => {
@@ -44,17 +48,18 @@ if (typeof window !== "undefined") {
         });
       });
 
-      // ✅ Ensure GSAP updates on scroll (important for Safari)
       scrollWrapper.addEventListener("scroll", ScrollTrigger.update);
       scrollWrapper.addEventListener("touchmove", ScrollTrigger.update);
 
-      // ✅ Optional: keep requestAnimationFrame alive for Safari refresh
       const rafFix = () => requestAnimationFrame(rafFix);
       rafFix();
 
-      ScrollTrigger.refresh();
+      // ✅ Final call should also be deferred
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
     }
   });
 }
 
-export { gsap, ScrollTrigger };
+export { gsap, ScrollTrigger, Flip };
