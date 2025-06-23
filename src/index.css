@@ -128,16 +128,6 @@ body {
 .scroll-wrapper::-webkit-scrollbar-track {
   background: transparent;
 }
-
-.app-main {}
-
-
-
-
-
-
-
-
 /* common style */
 .highlight-text {
   color: var(--primary-color);
@@ -1429,7 +1419,12 @@ color:white;
     white-space: nowrap;
     border-width: 0;
   }
-  
+  .wecan-static,
+.wecan-replace {
+  display: inline-block;
+  font-weight: bold;
+  transition: opacity 0.4s, transform 0.4s;
+}
 }
 
 
@@ -1768,3 +1763,63 @@ color:white;
   padding-left: 2rem;
 }
 /* privacy policy ends */
+
+/* Client portal */
+.clientPortal{
+  height: 100vh;
+  position: relative;
+}
+.client-heading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* height: 95vh; */
+  font-size: var(--heading-font);
+  font-family: var(--contact-font);
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+.client-items{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+  white-space: nowrap;
+}
+.client-item{
+  min-width: 90%;
+  height: 350px;
+  padding: 2rem 1rem;
+  background-color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+.client-info{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--contact-font);
+  gap: 10px;
+  color: black;
+  font-size: 1.2rem;
+  text-align: right;
+}
+.client-info p{
+  letter-spacing: 1.2px;
+  font-weight: 500;
+}
+.client-img{
+  width: 650px;
+  height: 370px;
+}
+.client-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+/* Client portal ends */
