@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger } from "./gsapSetup";
 
-
 const ScrollPage = () => {
   const itemsRef = useRef([]);
   const chromaEntryRef = useRef(null);
@@ -129,8 +128,9 @@ const ScrollPage = () => {
     <div className="scrollpage-container">
       <header className="scrollpage-header">
         <h1 className="scrollpage-fluid">
-          What We can<br />
-          Do?
+          What We can
+          <br />
+          Do.
         </h1>
       </header>
       <main className="scrollpage-main">

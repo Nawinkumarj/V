@@ -8,6 +8,31 @@
 }
 
 @media (max-width: 768px) {
+  
+  @media (max-width: 768px) {
+    .navbar-center {
+      display: none; /* hide nav links on mobile */
+    }
+  
+    .hamburger {
+      display: block; /* show hamburger on mobile */
+    }
+  
+    /* Optional: adjust logo size on mobile */
+    .navbar-left .navbar-logo img {
+      height: 36px;
+    }
+  
+    /* Dropdown menu full height on mobile */
+    .dropdown-menu {
+      top: 60px;
+      right: 0;
+      width: 80vw;
+      height: calc(100vh - 60px);
+      border-radius: 0;
+      overflow-y: auto;
+    }
+  }
     .service-main {
         grid-template-columns: 1fr;
         grid-template-rows: none;

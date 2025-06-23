@@ -7,6 +7,8 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const isMobile = window.innerWidth <= 768;
+
   useEffect(() => {
     const scrollWrapper = document.querySelector(".scroll-wrapper");
 
@@ -29,7 +31,7 @@ const Navbar = () => {
         </div>
 
         {/* Center Nav - visible only when NOT scrolled */}
-        {!scrolled && (
+        {!scrolled && !isMobile && (
           <div className="navbar-center">
             <NavLink to="/about-us" className="nav-link">
               <DecryptedText text="About" speed={50} />
@@ -41,7 +43,7 @@ const Navbar = () => {
         )}
 
         {/* Hamburger - visible when scrolled */}
-        {scrolled && (
+        {(scrolled || isMobile) && (
           <div className="navbar-right">
             <div
               tabindex="0"
@@ -59,7 +61,7 @@ const Navbar = () => {
               </svg>
             </div>
             {menuOpen && (
-              <div className="dropdown-menu">
+              <div className={`dropdown-menu ${menuOpen ? "open" : ""}`}>
                 <div className="dropdown-nav">
                   <div className="dropdown-navBar">
                     <NavLink to="/" onClick={() => setMenuOpen(false)}>

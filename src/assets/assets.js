@@ -1,5 +1,5 @@
 import logo from './V_logo.png';
-import logo1 from './logov.png'
+import logo1 from './logov.webp'
 import works1 from './Mockups/01.jpg'
 import works2 from './Mockups/02.jpg'
 import works3 from './Mockups/03.jpg'

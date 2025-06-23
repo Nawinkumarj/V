@@ -36,6 +36,7 @@ function App() {
   return (
     <div className="scroll-wrapper">
       <div className="app-main">
+        <Analytics />
         <ScrollToTop />
         <CustomCursor cursorImage={assets.cursor} />
         <EnquireButton />
