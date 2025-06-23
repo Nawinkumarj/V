@@ -1,38 +1,26 @@
+/* Our Wroks */
+@media (max-width: 768px) {
+  .ourWorks-heading{
+    font-size: 2rem;
+    padding: 50px 0 0 0;
+  }
+  .ourWorks{
+    margin-top: 0;
+    width: 90%;
+  }
+}
+/* Our Works */
+
 /* Service */
 
 @media (max-width: 1024px) {
 .service-main {
     width: 95%;
-    gap:10px;
+    gap: 10px;
 }
 }
 
 @media (max-width: 768px) {
-  
-  @media (max-width: 768px) {
-    .navbar-center {
-      display: none; /* hide nav links on mobile */
-    }
-  
-    .hamburger {
-      display: block; /* show hamburger on mobile */
-    }
-  
-    /* Optional: adjust logo size on mobile */
-    .navbar-left .navbar-logo img {
-      height: 36px;
-    }
-  
-    /* Dropdown menu full height on mobile */
-    .dropdown-menu {
-      top: 60px;
-      right: 0;
-      width: 80vw;
-      height: calc(100vh - 60px);
-      border-radius: 0;
-      overflow-y: auto;
-    }
-  }
     .service-main {
         grid-template-columns: 1fr;
         grid-template-rows: none;
@@ -252,7 +240,7 @@
 
 @media(max-width:768px){
   .aboutUs-container {
-    padding:2rem;
+    padding: 1.5rem;
   }
   .about-heading{
     font-size: 5rem;
