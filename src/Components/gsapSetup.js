@@ -1,8 +1,7 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Flip from "gsap/Flip";
 
-gsap.registerPlugin(ScrollTrigger , Flip);
+gsap.registerPlugin(ScrollTrigger);
 
 // ✅ Safe idle fallback
 const runIdle = (cb) =>
@@ -62,4 +61,4 @@ if (typeof window !== "undefined") {
   });
 }
 
-export { gsap, ScrollTrigger, Flip };
+export { gsap, ScrollTrigger};

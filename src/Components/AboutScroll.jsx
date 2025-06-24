@@ -9,10 +9,11 @@ const AboutScroll = () => {
 
 
   useEffect(() => {
+    if (window.innerWidth < 769) return;
     const scrollWrapper = document.querySelector(".scroll-wrapper");
     if (!scrollWrapper) return;
     const sections = gsap.utils.toArray(".aboutscroll-item");
-    const itemWidth = scrollWrapper.clientWidth / 2;
+    const itemWidth = scrollWrapper.clientWidth / 1.3;
     const totalScrollWidth = itemWidth * (sections.length - 2);
 
     const tl = gsap.to(sections, {

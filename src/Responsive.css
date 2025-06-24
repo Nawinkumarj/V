@@ -351,3 +351,43 @@
 }
 }
 /* Banner Ends */
+
+
+/* policies */
+
+@media (max-width:768px){
+  .privacy-container{
+    width: 95%;
+  }
+  .privacy-container h1{
+    font-size: 34px;
+    padding: 0.7rem 0;
+    position: relative;
+  }
+  .privacy-container h1::after{
+    width: 150px;
+    height:3px;
+  }
+  .privacy-container h2{
+    font-size: 24px;
+    padding: 0.7rem 0;
+  }
+  .privacy-container p{
+    font-size: 16px;
+    padding: 0.3rem 0;
+  }
+}
+
+/* policy end */
+
+
+/* scrollpage  */
+
+@media (max-width:768px){
+  .scrollpage-content:first-of-type{
+    --font-level: 8;
+  }
+  .scrollpage-header {
+    min-height: 50vh;
+  }
+}

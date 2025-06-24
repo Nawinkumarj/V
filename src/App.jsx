@@ -13,6 +13,7 @@ import ScrollBump from "./Components/ScrollBump";
 import PolicyPage from "./Pages/PrivacyPolicy";
 import { Analytics } from "@vercel/analytics/react"
 import ClientPortal from "./Pages/ClientPortal";
+import TermsConditions from "./Pages/TermsConditions";
 
 function App() {
   const footerRef = useRef(null); 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/cp" element={<ClientPortal />} />
           <Route path="/services" element={<Service />} />
           <Route path="/privacy-policy" element={<PolicyPage/>}/>
+          <Route path="/terms&conditions" element={<TermsConditions />} />
         </Routes>
 
         {/* ✅ Pass the ref to Footer */}

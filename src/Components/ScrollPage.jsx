@@ -7,12 +7,11 @@ const ScrollPage = () => {
   const chromaExitRef = useRef(null);
   const dimmerScrubRef = useRef(null);
   const scrollerScrubRef = useRef(null);
-  const weCanHeaderRef = useRef(null);
 
   useEffect(() => {
     const docEl = document.documentElement;
 
-    // Set initial CSS vars
+    // Set initial values directly
     const startHue = gsap.utils.random(0, 100, 1);
     const endHue = gsap.utils.random(900, 1000, 1);
     docEl.dataset.theme = "dark";
@@ -26,7 +25,6 @@ const ScrollPage = () => {
 
     itemsRef.current = gsap.utils.toArray("ul li");
 
-    // Dimmer animation
     const dimmer = gsap
       .timeline()
       .to(itemsRef.current.slice(1), { opacity: 1, stagger: 0.5 })
@@ -45,7 +43,6 @@ const ScrollPage = () => {
       scrub: 0.2,
     });
 
-    // Hue shift
     const scroller = gsap.timeline().fromTo(
       docEl,
       {
@@ -67,7 +64,6 @@ const ScrollPage = () => {
       scroller: ".scroll-wrapper",
     });
 
-    // Chroma entry/exit
     chromaEntryRef.current = gsap.fromTo(
       docEl,
       { "--chroma": 0 },
@@ -98,38 +94,6 @@ const ScrollPage = () => {
       }
     );
 
-    // "We can" transition effect
-    const weCan = weCanHeaderRef.current;
-    const weCanReplace = document.querySelector(".wecan-replace");
-
-    gsap.set(weCanReplace, { opacity: 0, y: 20 });
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: weCanReplace,
-          start: "top center",
-          end: "top center+=50",
-          scrub: 0.3,
-        },
-      })
-      .to(weCan, {
-        opacity: 0,
-        y: -50,
-        duration: 0.5,
-        ease: "power2.out",
-      })
-      .to(
-        weCanReplace,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power2.out",
-        },
-        "<"
-      );
-
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
@@ -156,21 +120,15 @@ const ScrollPage = () => {
     <div className="scrollpage-container">
       <header className="scrollpage-header">
         <h1 className="scrollpage-fluid">
-          What{" "} 
-          <span className="wecan-static" ref={weCanHeaderRef}>
-            We can
-          </span>
+          What We can
           <br />
-          <span>Do.</span>
+          Do.
         </h1>
       </header>
-
       <main className="scrollpage-main">
         <section className="scrollpage-content scrollpage-fluid">
           <h2>
-            <span className="wecan-replace" aria-hidden="true">
-              We can&nbsp;
-            </span>
+            <span aria-hidden="true">We can&nbsp;</span>
             <span className="scroll-page-sr-only">you can ship things.</span>
           </h2>
           <ul aria-hidden="true" style={{ "--count": listItems.length }}>
@@ -181,7 +139,6 @@ const ScrollPage = () => {
             ))}
           </ul>
         </section>
-
         <section
           style={{ height: "10vh", pointerEvents: "none", opacity: 0 }}
         />

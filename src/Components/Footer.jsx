@@ -46,8 +46,12 @@ const Footer = forwardRef((props, ref) => {
             <p>sample1</p>
           </div>
           <div className="developers-terms">
-           <Link to="/privacy-policy"> <p>Privacy Policy</p></Link>
-            <p>terms of service</p>
+            <Link to="/privacy-policy">
+              <p>Privacy Policy</p>
+            </Link>
+            <Link to="/terms&conditions">
+              <p>Terms & Conditions</p>
+            </Link>
             <p>terms of service</p>
           </div>
         </div>
@@ -94,7 +98,7 @@ const Footer = forwardRef((props, ref) => {
       <div ref={ref} className="footer-copyrits">
         <p>
           Copyright © {currentYear} All rights reserved |{" "}
-          <a href="mailto:hi@vcraftyucompany.com">hi@vcraftyucompany.com</a> 
+          <a href="mailto:hi@vcraftyucompany.com">hi@vcraftyucompany.com</a>
         </p>
       </div>
     </footer>
