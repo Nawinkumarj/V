@@ -37,7 +37,7 @@ const Navbar = () => {
               <DecryptedText text="About" speed={50} />
             </NavLink>
             <NavLink to="/cp" className="nav-link">
-              <DecryptedText text="Client Portal" speed={50} />
+              <DecryptedText text="VC Portal" speed={50} />
             </NavLink>
             <NavLink to="/services" className="nav-link">
               <DecryptedText text="Service" speed={50} />
@@ -74,7 +74,7 @@ const Navbar = () => {
                       About
                     </NavLink>
                     <NavLink to="/cp" onClick={() => setMenuOpen(false)}>
-                      Clients Portal
+                      VC Portal
                     </NavLink>
                     <NavLink to="/services" onClick={() => setMenuOpen(false)}>
                       Service
