@@ -472,8 +472,6 @@
   .clientPortal{
     width: 100%;
     height: 100%;
-    background-color: red;
-    overflow: scroll;
   }
   .client-section{
     position: relative;
