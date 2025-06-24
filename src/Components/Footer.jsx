@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { assets } from "../assets/assets";
 
 
 const Footer = forwardRef((props, ref) => {
@@ -36,16 +37,14 @@ const Footer = forwardRef((props, ref) => {
         </div>
         <div className="footer-developers grid-4">
           <div className="developers-1">
-            <h1>developers</h1>
-            <p>sample1</p>
-            <p>sample2</p>
-            <p>sample3</p>
+            <h1>Quick Links</h1>
+            <p>Home</p>
+            <p>About</p>
+            <p>Services</p>
+            <p>VC Portal</p>
           </div>
           <div className="developers-1">
-            <h1>Solution</h1>
-            <p>sample1</p>
-          </div>
-          <div className="developers-terms">
+            <h1>Policies</h1>
             <Link to="/privacy-policy">
               <p>Privacy Policy</p>
             </Link>
@@ -54,8 +53,14 @@ const Footer = forwardRef((props, ref) => {
             </Link>
             <p>terms of service</p>
           </div>
+          {/* <div className="developers-terms"></div> */}
         </div>
-        <div className="footer-connect grid-5"></div>
+        <div className="footer-connect grid-5">
+          <div className="developers-1">
+            <h1>Contact Us</h1>
+            <p>sample1</p>
+          </div>
+        </div>
         <div className="footer-company grid-6">
           <div className="footer-social-card">
             <ul>
@@ -91,7 +96,9 @@ const Footer = forwardRef((props, ref) => {
         </div>
         <div className="footer-length grid-7">
           <div className="footer-dot">
-            <div className="ball"></div>
+            <div className="footer-dot-logo">
+              <img src={assets.logo} alt="" />
+            </div>
           </div>
         </div>
       </div>

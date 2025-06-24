@@ -7,12 +7,21 @@ const Clients = () => {
   const animationRef = useRef(null);
 
   const clients = [
-    assets.client1, assets.client2, assets.client3,
-    assets.client4, assets.client5, assets.client6,
-    assets.client7, assets.client8, assets.client9,
+    assets.client1,
+    assets.client2,
+    assets.client3,
+    assets.client4,
+    assets.client5,
+    assets.client6,
+    assets.client7,
+    assets.client8,
+    assets.client9,
   ];
 
   useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    if (isMobile) return;
     const track = trackRef.current;
 
     // Duplicate the logos for seamless looping

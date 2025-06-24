@@ -23,12 +23,17 @@ const clientData = [
 ];
 
 const ClientPortal = () => {
+    
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
   const itemRefs = useRef([]);
   const headingRef = useRef(null);
 
   useEffect(() => {
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    if (isMobile) return;
     const scrollWrapper = document.querySelector(".scroll-wrapper");
     if (!scrollWrapper) return;
 

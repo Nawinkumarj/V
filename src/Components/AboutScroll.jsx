@@ -64,7 +64,7 @@ const AboutScroll = () => {
   };
 
   return (
-    <div className="ourWorks-container" ref={workscontainerRef}>
+    <div className="ourWorks-container aboutscroll-container" ref={workscontainerRef}>
       <div className="ourWorks-heading">
         <h1>branding</h1>
       </div>

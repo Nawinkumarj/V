@@ -668,18 +668,16 @@ body {
   color: var(--text-color);
   display: flex;
   align-items: center;
+  text-align: left;
   justify-content: space-between;
   border: none;
   transition: all 0.4s ease;
 }
 
-
-
 .faq-item{
   border-bottom: 1px solid var(--primary-color);
   padding: 20px;
   transition: all 0.3s ease;
-
 }
 .faq-answer{
   padding: 20px;
@@ -687,7 +685,6 @@ body {
   font-family: var(--contact-font);
   color: var(--text-color);
   transition: all 0.3s ease;
-
 }
 /* Faq ends */
 
@@ -830,7 +827,7 @@ body {
 
 .footer-icons {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
 }
 
 .footer-icon-red {
@@ -841,7 +838,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  width: 150px;
+  width: 180px;
 }
 
 .footer-icon-yellow {
@@ -852,7 +849,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 30px;
-  width: 150px;
+  width: 170px;
 }
 
 .footer-icon-red img,
@@ -894,11 +891,17 @@ body {
   justify-content: center;
   align-items: center;
 }
+.footer-developers{
+  width: 200px;
+}
 
 .developers-1 h1 {
   text-align: left;
   text-transform: capitalize;
+  font-size: 24px;
   margin: 10px 0;
+  font-family: var(--navbar-font);
+  color: var(--primary-color);
 }
 
 .developers-1 p {
@@ -906,6 +909,14 @@ body {
   text-transform: capitalize;
   padding-left: 1rem;
   padding: 8px 1rem 0 0;
+  font-family: var(--title-font);
+  color:var(--text-color)
+ 
+}
+
+.developers-1 a{
+  text-decoration: none;
+  color:white;
 }
 
 .developers-terms {
@@ -916,11 +927,11 @@ body {
 .developers-terms p {
   text-align: left;
   padding: 8px 1rem 0 0;
+  font-family: var(--title-font);
 }
 
-.developers-terms a{
-  text-decoration: none;
-color:white;
+.footer-dot-logo img{
+  width: 220px;
 }
 
 /* .footer-dot {
@@ -931,7 +942,7 @@ color:white;
   position: relative;
   overflow: hidden;
 }
-
+/* 
 .ball {
   width: 20px;
   height: 20px;
@@ -942,7 +953,6 @@ color:white;
   animation: jump-across 3s infinite ease-in-out;
 }
 
-/* Jumping and bouncing across animation */
 @keyframes jump-across {
   0% {
     left: 0%;
@@ -984,7 +994,7 @@ color:white;
     bottom: 0;
     left: 100%;
   }
-}
+} */
 
 .footer-slash {
   width: 185px;
@@ -1688,7 +1698,9 @@ color:white;
   width: 100%;
   height: 100%;
   display: block;
+  
 }
+
 
 .label {
   position: absolute;
