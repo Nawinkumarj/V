@@ -75,6 +75,7 @@ const AboutScroll = () => {
           assets.abt_scroll3,
           assets.abt_scroll4,
           assets.abt_scroll5,
+          assets.abt_scroll6,
         ].map((img, i) => (
           <div
             key={i}

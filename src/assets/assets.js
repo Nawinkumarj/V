@@ -26,6 +26,7 @@ import abt_scroll2 from "./Gallery/2.jpg";
 import abt_scroll3 from "./Gallery/3.jpg";
 import abt_scroll4 from "./Gallery/4.jpg";
 import abt_scroll5 from "./Gallery/5.png";
+import abt_scroll6 from "./Gallery/6.png";
 
 import video from './Render.mov'
 
@@ -53,6 +54,7 @@ export const assets = {
   abt_scroll3,
   abt_scroll4,
   abt_scroll5,
+  abt_scroll6,
   video,
 };       
 
