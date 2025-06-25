@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, {useState, useEffect, useRef } from "react";
 import { assets } from "../assets/assets";
 import gsap from "gsap";
 
 const Clients = () => {
   const trackRef = useRef(null);
   const animationRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const clients = [
     assets.client1,
@@ -19,9 +20,10 @@ const Clients = () => {
   ];
 
   useEffect(() => {
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const checkMobile = window.matchMedia("(max-width: 768px)").matches;
+    setIsMobile(checkMobile);
 
-    if (isMobile) return;
+    if (checkMobile) return;
     const track = trackRef.current;
 
     // Duplicate the logos for seamless looping
@@ -61,7 +63,7 @@ const Clients = () => {
         onMouseLeave={handleMouseLeave}
       >
         <div className="clients-track" ref={trackRef}>
-          {[...clients, ...clients].map((client, i) => (
+          {(isMobile ? clients :[...clients, ...clients]) .map((client, i) => (
             <div key={i} className="clientItem">
               <img src={client} alt={`client-${i + 1}`} />
             </div>

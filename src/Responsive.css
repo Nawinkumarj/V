@@ -261,6 +261,7 @@
   .clients{
     width:95%;
   }
+
 }
 
 @media(max-width:768px){
@@ -277,16 +278,28 @@
   .aboutDescription{
     font-size:18px;
   }
+
+  .clients-Section{
+    height: 100%; 
+    margin:5rem auto 30px auto
+  }
   .clients{
-    width: 95%;
+    width: 100%;
+    display: block;
+    
   }
   .clients-track{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
     justify-content: space-between;
+    justify-items: center;
+    padding-bottom: 1rem;
   }
   .aboutHeading img {
     width:20px;
+  }
+  .clientItem {
+    width:130px;
   }
   
   
@@ -466,6 +479,10 @@
   .marquee-content a {
     font-size:5rem;
   }
+  .dropdown-menu {
+  right:45px;
+  width:285px;  
+}
 }
 /* Cllient portal */
 @media (max-width:768px){
