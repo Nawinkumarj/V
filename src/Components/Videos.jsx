@@ -59,7 +59,15 @@ const Videos = () => {
 
   return (
     <div className="video-container" ref={videocontainerRef}>
-      <video src={assets.video} autoPlay loop muted ref={videoRef}></video>
+      <video
+        src={assets.video}
+        autoPlay
+        playsInline
+        loop
+        muted
+        ref={videoRef}
+        type="video/mp4"
+      ></video>
     </div>
   );
 };

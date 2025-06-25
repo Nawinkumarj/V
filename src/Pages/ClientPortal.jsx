@@ -30,70 +30,103 @@ const ClientPortal = () => {
   const headingRef = useRef(null);
 
   useEffect(() => {
-
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-    if (isMobile) return;
     const scrollWrapper = document.querySelector(".scroll-wrapper");
     if (!scrollWrapper) return;
 
-    const totalScrollWidth =
-      scrollRef.current.scrollWidth - scrollWrapper.clientWidth;
+    const waitForImages = () => {
+      const images = scrollWrapper.querySelectorAll("img");
+      let loadedCount = 0;
 
-    // Animate horizontal scroll of the .client-items container
-    gsap.to(scrollRef.current, {
-      x: () => `-${totalScrollWidth}px`,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: `+=${totalScrollWidth}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-        scroller: ".scroll-wrapper",
-      },
-    });
-
-    // Animate individual cards when they appear
-    itemRefs.current.forEach((ref, i) => {
-      if (!ref) return;
-      gsap.fromTo(
-        ref,
-        { x: 550, y: 200 , opacity: 0, scale: .9 },
-        {
-          x: -100,
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ref,
-            scroller: ".scroll-wrapper",
-            start: "left",
-            end: "center",
-            scrub: true,
-          },
+      images.forEach((img) => {
+        if (img.complete) {
+          loadedCount++;
+        } else {
+          img.onload = img.onerror = () => {
+            loadedCount++;
+            if (loadedCount === images.length) runGSAP();
+          };
         }
-      );
-    });
-    // Heading
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: headingRef.current,
-            scroller: ".scroll-wrapper",
-            start: "top 10%",
-            end: "top 10%",
-            scrub: 2,
-            pin: true,
-          },
-        }).fromTo(
-          headingRef.current,
-          { y: 0, opacity: 1, ease: "back.out(1.7)", duration: 3.5 },
-          { y: -300, opacity: 1 , ease : "back.out(1.7)", duration: 2.5 },
-        );
-    ScrollTrigger.refresh();
+      });
+
+      if (loadedCount === images.length) {
+        runGSAP();
+      }
+    };
+
+    const runGSAP = () => {
+      ScrollTrigger.matchMedia({
+        "(min-width: 769px)": () => {
+          const totalScrollWidth =
+            scrollRef.current.scrollWidth - scrollWrapper.clientWidth;
+
+          // Horizontal scroll
+          gsap.to(scrollRef.current, {
+            x: `-${totalScrollWidth}px`,
+            ease: "none",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top top",
+              end: `+=${totalScrollWidth}`,
+              scrub: 1,
+              pin: true,
+              anticipatePin: 1,
+              scroller: ".scroll-wrapper",
+            },
+          });
+
+          // Each card
+          itemRefs.current.forEach((ref) => {
+            if (!ref) return;
+            gsap.fromTo(
+              ref,
+              { x: 550, y: 200, opacity: 0, scale: 0.9 },
+              {
+                x: -300,
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: ref,
+                  scroller: ".scroll-wrapper",
+                  start: "left",
+                  end: "center",
+                  scrub: true,
+                },
+              }
+            );
+          });
+
+          // Heading animation
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: headingRef.current,
+                scroller: ".scroll-wrapper",
+                start: "top top",
+                end: "+=300",
+                scrub: 2,
+                pin: true,
+              },
+            })
+            .fromTo(
+              headingRef.current,
+              { y: 0, opacity: 1 },
+              { y: -200, opacity: 1 }
+            );
+        },
+      });
+
+      ScrollTrigger.refresh(); // Move refresh here after GSAP is applied
+    };
+
+    waitForImages();
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
+  
 
   return (
     <div className="clientPortal" ref={containerRef}>
