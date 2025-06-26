@@ -66,7 +66,7 @@ const Videos = () => {
         loop
         muted
         ref={videoRef}
-        type="video/mp4"
+        typeof="mp3"
       ></video>
     </div>
   );

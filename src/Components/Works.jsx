@@ -28,9 +28,14 @@ const Works = () => {
       );
       tl.to(
         ref,
-        { y: -10, duration: 0.5, ease: "power2.inOut" },
+        {
+          y: -30,
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
         i * 1.2 + 0.6
       );
+      
     });
 
     setTimeout(() => {

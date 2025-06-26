@@ -3,6 +3,7 @@ import logo1 from './logov.webp'
 import works1 from './Mockups/01.jpg'
 import works2 from './Mockups/02.jpg'
 import works3 from './Mockups/03.jpg'
+import works4 from './Mockups/04.png'
 import cursor from './V.png'
 // Clients
 import client1 from './Clients/ACM-cropped.svg'
@@ -28,7 +29,7 @@ import abt_scroll4 from "./Gallery/4.jpg";
 import abt_scroll5 from "./Gallery/5.png";
 import abt_scroll6 from "./Gallery/6.png";
 
-import video from './Render.mov'
+import video from './Render1.mov'
 
 export const assets = {
   logo,
@@ -36,6 +37,7 @@ export const assets = {
   works1,
   works2,
   works3,
+  works4,
   client1,
   client2,
   client3,

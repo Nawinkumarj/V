@@ -14,10 +14,14 @@ const clientData = [
     type: "Web App",
   },
   {
-    // name: "Instyl Hair n Bridal Studio",
     name: "Jonak",
     img: assets.works3,
     type: "Mobile App",
+  },
+  {
+    name: "Instyl Hair n Bridal Studio",
+    img: assets.works4,
+    type: " 3d Website",
   }
 
 ];
@@ -103,21 +107,21 @@ const ClientPortal = () => {
               scrollTrigger: {
                 trigger: headingRef.current,
                 scroller: ".scroll-wrapper",
-                start: "top top",
-                end: "+=300",
+                start: "top 10%",
+                end: "top 10%",
                 scrub: 2,
                 pin: true,
               },
             })
             .fromTo(
               headingRef.current,
-              { y: 0, opacity: 1 },
-              { y: -200, opacity: 1 }
+              { y: 0, opacity: 1, ease: "back.out(1.7)", duration: 3.5 },
+              { y: -300, opacity: 1, ease: "back.out(1.7)", duration: 2.5 }
             );
         },
       });
 
-      ScrollTrigger.refresh(); // Move refresh here after GSAP is applied
+      ScrollTrigger.refresh();
     };
 
     waitForImages();

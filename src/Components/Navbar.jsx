@@ -34,13 +34,13 @@ const Navbar = () => {
         {!scrolled && !isMobile && (
           <div className="navbar-center">
             <NavLink to="/about-us" className="nav-link">
-              <DecryptedText text="About" speed={50} />
+              <DecryptedText text="About" speed={90} />
             </NavLink>
             <NavLink to="/cp" className="nav-link">
-              <DecryptedText text="VC Portal" speed={50} />
+              <DecryptedText text="VC Portal" speed={90} />
             </NavLink>
             <NavLink to="/services" className="nav-link">
-              <DecryptedText text="Service" speed={50} />
+              <DecryptedText text="Service" speed={90} />
             </NavLink>
           </div>
         )}
@@ -64,7 +64,7 @@ const Navbar = () => {
               </svg>
             </div>
             {menuOpen && (
-              <div className={`dropdown-menu ${menuOpen ? "open" : ""}`}>
+              <div className={`dropdown-menu ${menuOpen ? "open" : "closed"}`}>
                 <div className="dropdown-nav">
                   <div className="dropdown-navBar">
                     <NavLink to="/" onClick={() => setMenuOpen(false)}>
