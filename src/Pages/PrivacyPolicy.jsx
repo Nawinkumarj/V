@@ -26,7 +26,7 @@ const PrivacyPolicy = () => {
             trigger: el,
             start: "top 101%",
             toggleActions: "play reverse play reverse",
-            scroller: ".scroll-wrapper",
+            // scroller: ".scroll-wrapper",
           },
         }
       );

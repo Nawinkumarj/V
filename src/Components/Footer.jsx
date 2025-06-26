@@ -3,6 +3,10 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
+import { IoMailOpenOutline } from "react-icons/io5";
+import { LuPhoneCall } from "react-icons/lu";
+
+
 
 
 const Footer = forwardRef((props, ref) => {
@@ -56,9 +60,16 @@ const Footer = forwardRef((props, ref) => {
           {/* <div className="developers-terms"></div> */}
         </div>
         <div className="footer-connect grid-5">
-          <div className="developers-1">
+          <div className="developers-2">
             <h1>Contact Us</h1>
-            <p>sample1</p>
+            <p>
+              <IoMailOpenOutline color="#8750f7" size={22} />
+              <a href="mailto:hi@vcraftyucompany.com">hi@vcraftyucompany.com</a>
+            </p>
+            <p>
+              <LuPhoneCall color="#8750f7" size={22} />
+              <a href="tel:+91 9840488033">+91 9840488033</a>
+            </p>
           </div>
         </div>
         <div className="footer-company grid-6">

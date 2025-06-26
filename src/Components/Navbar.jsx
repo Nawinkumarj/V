@@ -1,32 +1,47 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { assets } from "../assets/assets";
 import DecryptedText from "../Components/DecryptedText";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const blackLogoRoutes = ["/about-us", "/services", "/cp"];
+const showBlackLogo = blackLogoRoutes.includes(location.pathname) || scrolled;
+
+  const [textColorClass, setTextColorClass] = useState("");
 
   const isMobile = window.innerWidth <= 768;
 
+  // Scroll listener
   useEffect(() => {
-    const scrollWrapper = document.querySelector(".scroll-wrapper");
-
     const handleScroll = () => {
-      setScrolled(scrollWrapper.scrollTop > 50);
+      setScrolled(window.scrollY > 50);
     };
 
-    scrollWrapper.addEventListener("scroll", handleScroll);
-    return () => scrollWrapper.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  //text color
+  useEffect(() => {
+    const blackTextRoutes = [ "/cp"];
+    if (blackTextRoutes.includes(location.pathname)) {
+      setTextColorClass("dark-text");
+    } else {
+      setTextColorClass("light-text");
+    }
+  }, [location.pathname]);
 
   return (
     <div className="navbar-container">
-      <div className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className={`navbar ${scrolled ? "scrolled" : ""} ${textColorClass}`}>
         {/* Logo */}
         <div className="navbar-left">
           <a href="/" className="navbar-logo">
-            <img src={scrolled ? assets.logo1 : assets.logo} alt="Logo" />
+          <img src={showBlackLogo ? assets.logo1 : assets.logo} alt="Logo" />
+
           </a>
         </div>
 
@@ -49,12 +64,12 @@ const Navbar = () => {
         {(scrolled || isMobile) && (
           <div className="navbar-right">
             <div
-              tabindex="0"
+              tabIndex="0"
               className={`hamburger ${menuOpen ? "active" : ""}`}
               onClick={() => setMenuOpen(!menuOpen)}
             >
               <svg
-                class="plusIcon"
+                className="plusIcon"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 30 30"
               >
@@ -67,7 +82,7 @@ const Navbar = () => {
               <div className={`dropdown-menu ${menuOpen ? "open" : "closed"}`}>
                 <div className="dropdown-nav">
                   <div className="dropdown-navBar">
-                    <NavLink to="/" onClick={() => setMenuOpen(false)}>
+                    <NavLink to="/" className={"navv"} onClick={() => setMenuOpen(false)}>
                       Home
                     </NavLink>
                     <NavLink to="/about-us" onClick={() => setMenuOpen(false)}>
@@ -85,7 +100,9 @@ const Navbar = () => {
                       <a href="tel:+91 9840488033">+91 9840488033</a>
                     </div>
                     <div className="dropdown-mail">
-                      <a href="mailto:hi@vcraftyucompany.com">hi@vcraftyucompany.com</a>
+                      <a href="mailto:hi@vcraftyucompany.com">
+                        hi@vcraftyucompany.com
+                      </a>
                     </div>
                   </div>
                 </div>

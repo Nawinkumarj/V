@@ -17,7 +17,7 @@ const About = () => {
         trigger: aboutRef.current,
         start: "top 10%",
         end: "bottom 0%",
-        scroller: ".scroll-wrapper",
+        // scroller: ".scroll-wrapper",
         scrub: 1,
       },
     });

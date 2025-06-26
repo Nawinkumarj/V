@@ -4,32 +4,29 @@ import React, { useEffect } from "react";
 const ScrollBump = ({ footerRef }) => {
   useEffect(() => {
     const bump = document.getElementById("scroll-bump");
-    const scrollWrapper = document.querySelector(".scroll-wrapper");
 
     const handleScroll = () => {
-      if (!bump || !footerRef?.current || !scrollWrapper) return;
+      if (!bump || !footerRef?.current) return;
 
       const footerRect = footerRef.current.getBoundingClientRect();
-      const wrapperRect = scrollWrapper.getBoundingClientRect();
-      const footerTop = footerRect.top - wrapperRect.top;
-      const footerHeight = footerRect.height;
+      const viewportHeight = window.innerHeight;
 
       const isVisible =
-        footerTop < scrollWrapper.clientHeight && footerTop + footerHeight > 0;
+        footerRect.top < viewportHeight && footerRect.bottom > 0;
 
       bump.classList.toggle("visible", isVisible);
     };
 
     const handleClick = () => {
-      scrollWrapper?.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    scrollWrapper?.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
     bump?.addEventListener("click", handleClick);
-    handleScroll();
+    handleScroll(); // Initial check
 
     return () => {
-      scrollWrapper?.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       bump?.removeEventListener("click", handleClick);
     };
   }, [footerRef]);

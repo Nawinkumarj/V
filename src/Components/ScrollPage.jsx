@@ -61,7 +61,7 @@ const ScrollPage = () => {
       end: "center center",
       animation: scroller,
       scrub: 0.2,
-      scroller: ".scroll-wrapper",
+      // scroller: ".scroll-wrapper",
     });
 
     chromaEntryRef.current = gsap.fromTo(
@@ -117,32 +117,34 @@ const ScrollPage = () => {
   ];
 
   return (
-    <div className="scrollpage-container">
-      <header className="scrollpage-header">
-        <h1 className="scrollpage-fluid">
-          What We can
-          <br />
-          Do.
-        </h1>
-      </header>
-      <main className="scrollpage-main">
-        <section className="scrollpage-content scrollpage-fluid">
-          <h2>
-            <span aria-hidden="true">We can&nbsp;</span>
-            <span className="scroll-page-sr-only">you can ship things.</span>
-          </h2>
-          <ul aria-hidden="true" style={{ "--count": listItems.length }}>
-            {listItems.map((text, i) => (
-              <li key={i} style={{ "--i": i }}>
-                {text}
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section
-          style={{ height: "10vh", pointerEvents: "none", opacity: 0 }}
-        />
-      </main>
+    <div className="scrollpage-wrap-contain">
+      <div className="scrollpage-container">
+        <header className="scrollpage-header">
+          <h1 className="scrollpage-fluid">
+            What We can
+            <br />
+            Do.
+          </h1>
+        </header>
+        <main className="scrollpage-main">
+          <section className="scrollpage-content scrollpage-fluid">
+            <h2>
+              <span aria-hidden="true">We can&nbsp;</span>
+              <span className="scroll-page-sr-only">you can ship things.</span>
+            </h2>
+            <ul aria-hidden="true" style={{ "--count": listItems.length }}>
+              {listItems.map((text, i) => (
+                <li key={i} style={{ "--i": i }}>
+                  {text}
+                </li>
+              ))}
+            </ul>
+          </section>
+          <section
+            style={{ height: "10vh", pointerEvents: "none", opacity: 0 }}
+          />
+        </main>
+      </div>
     </div>
   );
 };

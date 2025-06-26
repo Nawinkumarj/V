@@ -15,7 +15,7 @@ const Works = () => {
         scrub: 1,
         pin: true,
         // markers: true,
-        scroller: ".scroll-wrapper",
+        // scroller: ".scroll-wrapper",
       },
     });
 

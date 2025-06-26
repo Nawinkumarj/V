@@ -10,32 +10,30 @@ const AboutScroll = () => {
 
   useEffect(() => {
     if (window.innerWidth < 769) return;
-    const scrollWrapper = document.querySelector(".scroll-wrapper");
-    if (!scrollWrapper) return;
+
     const sections = gsap.utils.toArray(".aboutscroll-item");
-    const itemWidth = scrollWrapper.clientWidth / 1.3;
+    const containerWidth = workscontainerRef.current.clientWidth;
+    const itemWidth = containerWidth / 1.3;
     const totalScrollWidth = itemWidth * (sections.length - 2);
 
     const tl = gsap.to(sections, {
-      x: () => `-${totalScrollWidth}px`,
+      x: `-${totalScrollWidth}px`,
       ease: "none",
       scrollTrigger: {
         trigger: workscontainerRef.current,
         start: "top top",
-        end: () => `+=${totalScrollWidth}`,
+        end: `+=${totalScrollWidth}`,
         scrub: 1,
         pin: true,
         anticipatePin: 1,
-        scroller: ".scroll-wrapper",
       },
     });
 
-    // Refresh scroll trigger
+    // Refresh ScrollTrigger after a short delay to ensure images and layout are ready
     setTimeout(() => {
       ScrollTrigger.refresh();
     }, 500);
 
-    // Clean up
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       tl.kill();

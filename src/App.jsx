@@ -14,6 +14,7 @@ import PolicyPage from "./Pages/PrivacyPolicy";
 import { Analytics } from "@vercel/analytics/react"
 import ClientPortal from "./Pages/ClientPortal";
 import TermsConditions from "./Pages/TermsConditions";
+import SmoothScroll from "./Components/SmoothScroll";
 
 function App() {
   const footerRef = useRef(null); 
@@ -36,8 +37,9 @@ function App() {
 
 
   return (
-    <div className="scroll-wrapper">
+    // <div className="scroll-wrapper">
       <div className="app-main">
+        <SmoothScroll />
         <Analytics />
         <ScrollToTop />
         <CustomCursor cursorImage={assets.cursor} />
@@ -58,7 +60,7 @@ function App() {
         {/* Scroll Bump */}
         <ScrollBump footerRef={footerRef} />
       </div>
-    </div>
+    // </div>
   );
 }
 

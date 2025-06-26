@@ -19,7 +19,7 @@ const Videos = () => {
             end: "bottom 20%",
             scrub: 1,
             pin: true,
-            scroller: ".scroll-wrapper",
+            // scroller: ".scroll-wrapper",
           },
         });
 
@@ -39,7 +39,7 @@ const Videos = () => {
             end: "bottom 30%",
             scrub: 1,
             pin: true,
-            scroller: ".scroll-wrapper",
+            // scroller: ".scroll-wrapper",
           },
         });
 

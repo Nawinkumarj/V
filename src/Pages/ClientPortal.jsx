@@ -34,11 +34,12 @@ const ClientPortal = () => {
   const headingRef = useRef(null);
 
   useEffect(() => {
-    const scrollWrapper = document.querySelector(".scroll-wrapper");
-    if (!scrollWrapper) return;
+    const container = containerRef.current;
+    const scrollContainer = scrollRef.current;
+    if (!container || !scrollContainer) return;
 
     const waitForImages = () => {
-      const images = scrollWrapper.querySelectorAll("img");
+      const images = container.querySelectorAll("img");
       let loadedCount = 0;
 
       images.forEach((img) => {
@@ -61,41 +62,40 @@ const ClientPortal = () => {
       ScrollTrigger.matchMedia({
         "(min-width: 769px)": () => {
           const totalScrollWidth =
-            scrollRef.current.scrollWidth - scrollWrapper.clientWidth;
+            scrollContainer.scrollWidth - container.offsetWidth;
 
           // Horizontal scroll
-          gsap.to(scrollRef.current, {
+          gsap.to(scrollContainer, {
             x: `-${totalScrollWidth}px`,
             ease: "none",
             scrollTrigger: {
-              trigger: containerRef.current,
+              trigger: container,
               start: "top top",
-              end: `+=${totalScrollWidth}`,
-              scrub: 1,
+              end: () => `${totalScrollWidth * 2}px`,
+              scrub: 2,
               pin: true,
               anticipatePin: 1,
-              scroller: ".scroll-wrapper",
             },
           });
 
-          // Each card
+          // Animate each card
           itemRefs.current.forEach((ref) => {
             if (!ref) return;
             gsap.fromTo(
               ref,
-              { x: 550, y: 200, opacity: 0, scale: 0.9 },
+              { x: 2000, y: 200, opacity: 0, scale: 0.9,
+               },
               {
-                x: -300,
+                x: -500,
                 opacity: 1,
                 scale: 1,
-                duration: 1,
-                ease: "power3.out",
+                stagger: 0.1,
                 scrollTrigger: {
                   trigger: ref,
-                  scroller: ".scroll-wrapper",
-                  start: "left",
-                  end: "center",
-                  scrub: true,
+                  start: "top",
+                  end: "bottom 20%",
+                  scrub: .5,
+                  // markers: true,
                 },
               }
             );
@@ -106,16 +106,16 @@ const ClientPortal = () => {
             .timeline({
               scrollTrigger: {
                 trigger: headingRef.current,
-                scroller: ".scroll-wrapper",
                 start: "top 10%",
                 end: "top 10%",
                 scrub: 2,
                 pin: true,
+                anticipatePin: 1,
               },
             })
             .fromTo(
               headingRef.current,
-              { y: 0, opacity: 1, ease: "back.out(1.7)", duration: 3.5 },
+              { y: 0, opacity: 1 },
               { y: -300, opacity: 1, ease: "back.out(1.7)", duration: 2.5 }
             );
         },
@@ -130,6 +130,7 @@ const ClientPortal = () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+  
   
 
   return (
