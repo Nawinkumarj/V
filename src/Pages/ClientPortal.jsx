@@ -7,27 +7,29 @@ const clientData = [
     name: "Maxpro Consultancy",
     img: assets.works1,
     type: "Website",
+    year: "2024"
   },
   {
     name: "Avinya Construction & Management",
     img: assets.works2,
     type: "Web App",
+    year:"2023"
   },
   {
     name: "Jonak",
     img: assets.works3,
     type: "Mobile App",
+    year: "2023"
   },
   {
     name: "Instyl Hair n Bridal Studio",
     img: assets.works4,
     type: " 3d Website",
-  }
-
+    year: "2024"
+  },
 ];
 
 const ClientPortal = () => {
-    
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
   const itemRefs = useRef([]);
@@ -83,8 +85,7 @@ const ClientPortal = () => {
             if (!ref) return;
             gsap.fromTo(
               ref,
-              { x: 2000, y: 200, opacity: 0, scale: 0.9,
-               },
+              { x: 2000, y: 200, opacity: 0, scale: 0.9 },
               {
                 x: -500,
                 opacity: 1,
@@ -94,7 +95,7 @@ const ClientPortal = () => {
                   trigger: ref,
                   start: "top",
                   end: "bottom 20%",
-                  scrub: .5,
+                  scrub: 0.5,
                   // markers: true,
                 },
               }
@@ -130,11 +131,10 @@ const ClientPortal = () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
-  
-  
 
   return (
     <div className="clientPortal" ref={containerRef}>
+      <img src={assets.banner} alt="" className="clientBanner" />
       <div className="client-heading" ref={headingRef}>
         <h1>Our Trustees</h1>
       </div>
@@ -150,8 +150,13 @@ const ClientPortal = () => {
                 <img src={client.img} alt={client.name} />
               </div>
               <div className="client-info">
-                <h1>{client.name}</h1>
-                <p>{client.type}</p>
+                <div className="client-info-item1">
+                  <h1>{client.name}</h1>
+                  <p>{client.type}</p>
+                </div>
+                <div className="client-info-item2">
+                  <p>{client.year}</p>
+                </div>
               </div>
             </div>
           ))}

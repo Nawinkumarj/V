@@ -42,10 +42,18 @@ const Footer = forwardRef((props, ref) => {
         <div className="footer-developers grid-4">
           <div className="developers-1">
             <h1>Quick Links</h1>
-            <p>Home</p>
-            <p>About</p>
-            <p>Services</p>
-            <p>VC Portal</p>
+            <Link to="/">
+              <p>Home</p>
+            </Link>
+            <Link to="/about-us">
+              <p>About</p>
+            </Link>
+            <Link to="/services">
+              <p>Services</p>
+            </Link>
+            <Link to="/cp">
+              <p>VC Portal</p>
+            </Link>
           </div>
           <div className="developers-1">
             <h1>Policies</h1>

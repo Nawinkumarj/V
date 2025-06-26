@@ -6,17 +6,15 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const scrollWrapper = document.querySelector(".scroll-wrapper");
-
-    if (!scrollWrapper) return;
-
+    // Kill existing ScrollTriggers before scrolling
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-    scrollWrapper.scrollTo({ top: 0, behavior: "smooth" });
+    // Scroll the window to the top smoothly
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
+    // Ensure it reaches exact 0 after animation ends
     const handle = setTimeout(() => {
-      scrollWrapper.scrollTop = 0;
-
+      window.scrollTo({ top: 0 });
       ScrollTrigger.refresh();
     }, 700);
 

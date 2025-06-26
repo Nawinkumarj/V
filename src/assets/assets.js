@@ -17,6 +17,7 @@ import client8 from './Clients/moneta.png'
 import client9 from './Clients/anth.jpeg'
 
 import m from './magic.png'
+import banner from './b.svg'
 // service
 import mobile from "./mob.png"
 import web from "./web.png";
@@ -58,6 +59,7 @@ export const assets = {
   abt_scroll5,
   abt_scroll6,
   video,
+  banner,
 };       
 
 
