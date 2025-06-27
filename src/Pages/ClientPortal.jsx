@@ -85,7 +85,7 @@ const ClientPortal = () => {
             if (!ref) return;
             gsap.fromTo(
               ref,
-              { x: 2000, y: 200, opacity: 0, scale: 0.9 },
+              { x: 2000, y: 200, opacity: 1, scale: 0.9 },
               {
                 x: -500,
                 opacity: 1,
@@ -93,10 +93,10 @@ const ClientPortal = () => {
                 stagger: 0.1,
                 scrollTrigger: {
                   trigger: ref,
-                  start: "top",
+                  start: "top 20%",
                   end: "bottom 20%",
                   scrub: 0.5,
-                  // markers: true,
+                  markers: true,
                 },
               }
             );
@@ -107,11 +107,12 @@ const ClientPortal = () => {
             .timeline({
               scrollTrigger: {
                 trigger: headingRef.current,
-                start: "top 10%",
-                end: "top 10%",
+                start: "top 40%",
+                end: "top 30%",
                 scrub: 2,
                 pin: true,
                 anticipatePin: 1,
+                markers: true,
               },
             })
             .fromTo(

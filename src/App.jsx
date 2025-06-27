@@ -8,7 +8,7 @@ import Service from "./Pages/Services";
 import CustomCursor from "./Components/InteractiveCursor";
 import { assets } from "./assets/assets";
 import EnquireButton from "./Components/EnquireButton";
-import ScrollToTop from "./Components/ScrollToTop";
+// import ScrollToTop from "./Components/ScrollToTop";
 import ScrollBump from "./Components/ScrollBump";
 import PolicyPage from "./Pages/PrivacyPolicy";
 import { Analytics } from "@vercel/analytics/react"
@@ -38,28 +38,28 @@ function App() {
 
   return (
     // <div className="scroll-wrapper">
-      <div className="app-main">
-        <SmoothScroll />
-        <Analytics />
-        <ScrollToTop />
-        <CustomCursor cursorImage={assets.cursor} />
-        <EnquireButton />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/cp" element={<ClientPortal />} />
-          <Route path="/services" element={<Service />} />
-          <Route path="/privacy-policy" element={<PolicyPage/>}/>
-          <Route path="/terms&conditions" element={<TermsConditions />} />
-        </Routes>
+    <div className="app-main">
+      {/* <ScrollToTop /> */}
+      <SmoothScroll />
+      <Analytics />
+      <CustomCursor cursorImage={assets.cursor} />
+      <EnquireButton />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<About />} />
+        <Route path="/cp" element={<ClientPortal />} />
+        <Route path="/services" element={<Service />} />
+        <Route path="/privacy-policy" element={<PolicyPage />} />
+        <Route path="/terms&conditions" element={<TermsConditions />} />
+      </Routes>
 
-        {/* ✅ Pass the ref to Footer */}
-        <Footer ref={footerRef} />
+      {/* ✅ Pass the ref to Footer */}
+      <Footer ref={footerRef} />
 
-        {/* Scroll Bump */}
-        <ScrollBump footerRef={footerRef} />
-      </div>
+      {/* Scroll Bump */}
+      <ScrollBump footerRef={footerRef} />
+    </div>
     // </div>
   );
 }

@@ -1,11 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { assets } from "../assets/assets";
 import { Helmet } from "react-helmet";
 
 
 const Services = () => {
+  const serviceRef = useRef(null);
+
   useEffect(() => {
-    const cards = document.querySelectorAll(".service-hovercard-main");
+    const cards = serviceRef.current?.querySelectorAll(".service-hovercard-main");
+
+    if (!cards) return;
+
+    const listeners = [];
 
     cards.forEach((card) => {
       const blur = card.querySelector(".blurred-color");
@@ -32,24 +38,29 @@ const Services = () => {
       trackArea.addEventListener("mouseenter", handleMouseEnter);
       trackArea.addEventListener("mouseleave", handleMouseLeave);
 
-      // Cleanup
-      return () => {
+      listeners.push(() => {
         trackArea.removeEventListener("mousemove", handleMouseMove);
         trackArea.removeEventListener("mouseenter", handleMouseEnter);
         trackArea.removeEventListener("mouseleave", handleMouseLeave);
-      };
+      });
     });
+
+    // Clean up all listeners
+    return () => {
+      listeners.forEach((off) => off());
+    };
   }, []);
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Vcraftyu Company - A Digital Studio</title>
         <meta name="description" content="" />
         <meta property="og:title" content="Vcraftyu Company - A Digital Studio" />
       </Helmet>
-    <div className="service-container">
-      <div className="service-main">
+
+      <div className="service-container" ref={serviceRef}>
+        <div className="service-main">
         <div className="service-hovercard-main item-1">
           <div className="blurred-color" />
           <div className="service-hovercards">

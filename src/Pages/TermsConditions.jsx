@@ -49,6 +49,7 @@ const TermsConditions = () => {
         <meta property="og:title" content="Terms and Conditions" />
       </Helmet>
       <div className="privacy-container" ref={containerRef}>
+        <div className="privacy-main">
         <h1 className="highlight-text reveal">Terms and Conditions</h1>
         <p className="ggg reveal">Last updated: June 20, 2025</p>
         <p className="reveal">
@@ -368,7 +369,8 @@ const TermsConditions = () => {
               </a>
             </p>
           </li>
-        </ul>
+          </ul>
+          </div>
       </div>
     </>
   );

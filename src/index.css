@@ -252,12 +252,12 @@ body {
 
 .dropdown-menu {
   background-color: var(--text-color);
-  width: 300px;
+  width: 400px;
   height: 90vh;
   position: absolute;
   top: 0px;
   right: -40px;
-  border-radius: 8px;
+  border-radius: 15px;
   padding: 1rem;
   border: 2px solid var(--primary-color);
   display: flex;
@@ -301,11 +301,12 @@ body {
 }
 
 .dropdown-nav {
-  padding: 1rem;
+  padding: 1rem ;
   height: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  align-items: center;
 }
 .dropdown-menu a {
   width: 100%;
@@ -1719,8 +1720,8 @@ body {
 
 .scroll-bump {
   position: fixed;
-  bottom: 5px;
-  left: 50%;
+  bottom: -20px;
+  left: 45%;
   transform: translate(-50%, 100%);
   width: 100%;
   height: 60px;
@@ -1800,7 +1801,7 @@ body {
 
 .enquire-container {
   position: fixed;
-  right: 10px;
+  right: 0px;
   bottom: 30%;
   z-index: 555;
 }
@@ -1809,6 +1810,7 @@ body {
   background: var(--text-color);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  box-shadow: -12px 4px 28px -10px rgba(135,80,247,0.57);
   color: var(--primary-color);
   outline: none;
   border: none;
@@ -1828,11 +1830,16 @@ body {
 
 .privacy-container {
   color: var(--text-color);
-  margin: 5rem auto;
-  width: 80%;
+
   font-family: var(--title-font);
+background: var(--third-color);
 
+}
 
+.privacy-main{
+  padding: 5rem 0;
+  margin:auto;
+  width: 80%;
 }
 
 .privacy-container h1 {
@@ -1873,11 +1880,15 @@ body {
 
 /* Client portal */
 .clientPortal {
+  background-color: var(--text-color);
   height: 100vh;
   position: relative;
 }
 .clientPortal .clientBanner{
-  position: relative;
+
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   object-fit: cover;
   z-index: -9;
@@ -1924,7 +1935,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   font-family: var(--contact-font);
 }
 

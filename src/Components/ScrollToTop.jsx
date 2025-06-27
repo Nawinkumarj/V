@@ -1,25 +1,29 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { ScrollTrigger } from "../Components/gsapSetup";
+// import { useEffect } from "react";
+// import { useLocation } from "react-router-dom";
+// import { gsap, ScrollTrigger } from "../Components/gsapSetup";
 
-export default function ScrollToTop() {
-  const { pathname } = useLocation();
+// export default function ScrollToTop() {
+//   const { pathname } = useLocation();
 
-  useEffect(() => {
-    // Kill existing ScrollTriggers before scrolling
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+//   useEffect(() => {
+//     // Cleanup old animations and triggers BEFORE setting new ones
+//     return () => {
+//       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+//       gsap.globalTimeline.clear(); // clear any leftover animations
+//     };
+//   }, [pathname]);
 
-    // Scroll the window to the top smoothly
-    window.scrollTo({ top: 0, behavior: "smooth" });
+//   useEffect(() => {
+//     const delayHandle = setTimeout(() => {
+//       window.scrollTo({ top: 0 });
 
-    // Ensure it reaches exact 0 after animation ends
-    const handle = setTimeout(() => {
-      window.scrollTo({ top: 0 });
-      ScrollTrigger.refresh();
-    }, 700);
+//       setTimeout(() => {
+//         ScrollTrigger.refresh();
+//       }, 100);
+//     }, 100);
 
-    return () => clearTimeout(handle);
-  }, [pathname]);
+//     return () => clearTimeout(delayHandle);
+//   }, [pathname]);
 
-  return null;
-}
+//   return null;
+// }
