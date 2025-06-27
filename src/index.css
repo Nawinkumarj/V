@@ -1037,7 +1037,7 @@ body {
 .footer-copyrits {
   position: absolute;
   bottom: 10px;
-  right: 0;
+  right: 50px;
   display: flex;
   justify-content: center;
 }

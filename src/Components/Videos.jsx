@@ -25,8 +25,8 @@ const Videos = () => {
 
         vl.fromTo(
           videoRef.current,
-          { y: 0, opacity: 0, scale: 0.2, duration: 1.5, ease: "power2.inOut" },
-          { y: 0, opacity: 1, scale: 1, duration: 1.5, ease: "power2.inOut" }
+          { y: 0, opacity: 0, scale: 1.3, duration: 1, ease: "power2.inOut" },
+          { y: 0, opacity: 1, scale: .9, duration: 1, ease: "power2.inOut" }
         );
       },
 

@@ -12,19 +12,19 @@ const clientData = [
   {
     name: "Avinya Construction & Management",
     img: assets.works2,
-    type: "Web App",
+    type: "Website",
     year:"2023"
   },
   {
     name: "Jonak",
     img: assets.works3,
     type: "Mobile App",
-    year: "2023"
+    year: "2025"
   },
   {
     name: "Instyl Hair n Bridal Studio",
     img: assets.works4,
-    type: " 3d Website",
+    type: "3d Website",
     year: "2024"
   },
 ];
@@ -96,7 +96,7 @@ const ClientPortal = () => {
                   start: "top 20%",
                   end: "bottom 20%",
                   scrub: 0.5,
-                  markers: true,
+                  // markers: true,
                 },
               }
             );
@@ -112,7 +112,7 @@ const ClientPortal = () => {
                 scrub: 2,
                 pin: true,
                 anticipatePin: 1,
-                markers: true,
+                // markers: true,
               },
             })
             .fromTo(

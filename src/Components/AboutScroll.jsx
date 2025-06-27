@@ -2,15 +2,13 @@ import { useEffect, useRef } from "react";
 import { assets } from "../assets/assets";
 import { gsap, ScrollTrigger } from "../Components/gsapSetup";
 
-
 const AboutScroll = () => {
   const workscontainerRef = useRef(null);
   const itemRefs = useRef([]);
-
+  const abtRef = useRef(null);
 
   useEffect(() => {
     if (window.innerWidth < 769) return;
-
     const sections = gsap.utils.toArray(".aboutscroll-item");
     const containerWidth = workscontainerRef.current.clientWidth;
     const itemWidth = containerWidth / 1.3;
@@ -28,6 +26,23 @@ const AboutScroll = () => {
         anticipatePin: 1,
       },
     });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: abtRef.current,
+          start: "top top",
+          end: "top",
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          // markers: true,
+        },
+      })
+      .fromTo(
+        abtRef.current,
+        { x: 0, y: 50, opacity: 1 },
+        { x: -400,y: 50, opacity: 0, ease: "power2.Out", duration: 2.5 }
+      );
 
     // Refresh ScrollTrigger after a short delay to ensure images and layout are ready
     setTimeout(() => {
@@ -62,9 +77,12 @@ const AboutScroll = () => {
   };
 
   return (
-    <div className="ourWorks-container aboutscroll-container" ref={workscontainerRef}>
+    <div
+      className="ourWorks-container aboutscroll-container"
+      ref={workscontainerRef}
+    >
       <div className="ourWorks-heading">
-        <h1>branding</h1>
+        <h1 ref={abtRef}>branding</h1>
       </div>
       <div className="Aboutscroll">
         {[

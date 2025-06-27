@@ -39,7 +39,7 @@ function App() {
   return (
     // <div className="scroll-wrapper">
     <div className="app-main">
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
       <SmoothScroll />
       <Analytics />
       <CustomCursor cursorImage={assets.cursor} />
